@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 
 public class Main{
     static boolean debug = false;
-    static int size = 1000;
+    static int size = 1500;
     static long matrix1[][] = new long[size][size];
     static long matrix2[][] = new long[size][size];
     public static void main(String args[]){
@@ -20,6 +20,7 @@ public class Main{
 
                 matrix1[i][j] = rand.nextInt(10);
                 matrix2[i][j] = rand.nextInt(10);
+                
                 // matrix1[i][j] = i;
                 // matrix2[i][j] = j;
             }
@@ -47,7 +48,7 @@ public class Main{
     }
     public static void singleThreadMultipy(long[][] matrix1,long[][] matrix2){
         long initTime = System.currentTimeMillis();
-        System.out.println("啟動時間"+initTime);
+        System.out.println("start time"+initTime);
         long result[][] = new long[matrix1.length][matrix2[0].length];
         for(int i = 0 ; i<matrix1.length ; i++){
             for(int j = 0 ; j<matrix2[0].length ; j++){
@@ -59,8 +60,8 @@ public class Main{
             }
         }
         long stopTime = System.currentTimeMillis();
-        System.out.println("結束時間"+stopTime);
-        System.out.println("總耗時（milli second)"+(stopTime-initTime));
+        System.out.println("finish time"+stopTime);
+        System.out.println("time consumption(milli second)"+(stopTime-initTime));
         if(debug){
             for(int i = 0 ; i<matrix1.length ; i++){
                 for(int j = 0 ; j<matrix2[0].length ; j++){
@@ -74,7 +75,7 @@ public class Main{
     }
     public static void multilThreadMultipy(long[][] matrix1,long[][] matrix2){
         long initTime = System.currentTimeMillis();
-        System.out.println("啟動時間"+initTime);
+        System.out.println("start time"+initTime);
         long result[][] = new long[matrix1.length][matrix2[0].length];
         ExecutorService es = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         Collection<Callable<long[]>> tasks = new  LinkedList<>();
@@ -96,8 +97,8 @@ public class Main{
             es.shutdown();
         }
         long stopTime = System.currentTimeMillis();
-        System.out.println("結束時間"+stopTime);
-        System.out.println("總耗時（milli second)"+(stopTime-initTime));
+        System.out.println("finish time"+stopTime);
+        System.out.println("time consumption(milli second)"+(stopTime-initTime));
         if(debug){
             for(int i = 0 ; i<matrix1.length ; i++){
                 for(int j = 0 ; j<matrix2[0].length ; j++){
