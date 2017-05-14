@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 
 public class Main{
     static boolean debug = false;
-    static int size = 1500;
+    static int size = 1000;
     static long matrix1[][] = new long[size][size];
     static long matrix2[][] = new long[size][size];
     public static void main(String args[]){
