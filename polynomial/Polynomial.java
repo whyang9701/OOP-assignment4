@@ -43,7 +43,7 @@ public class Polynomial{
             for(int j = 0 ; j<polynomial.polynomial_terms.size() ; j++){
                 Term term1 = polynomial_terms.get(i);
                 Term term2 = polynomial.polynomial_terms.get(j);
-                temPolynomial.add(new Polynomial(new Term(term1.coefficient*term2.coefficient,term1.power*term2.power)));
+                temPolynomial.add(new Polynomial(new Term(term1.coefficient*term2.coefficient,term1.power+term2.power)));
             }
         }
         polynomial_terms = temPolynomial.polynomial_terms;
