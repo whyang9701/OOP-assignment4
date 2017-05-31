@@ -42,7 +42,9 @@ public class Main{
         //         }
         //         System.out.println();
         //     }
+        System.out.println("single thread");
         singleThreadMultipy(matrix1, matrix2);
+        System.out.println("multi thread");
         multilThreadMultipy(matrix1, matrix2);
 
     }
